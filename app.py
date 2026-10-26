@@ -21,7 +21,7 @@ def cargar_datos(ruta: str) -> pd.DataFrame:
 
 df = cargar_datos(ARCHIVO)
 
-st.title("Dashboard de desempeño de planta productiva")
+st.title("Dashboard de desempeño de planta productiva- Proyecto Final")
 st.caption(
     "Las unidades físicas de temperatura, vibración, presión y producción no están "
     "documentadas en la fuente; los valores se reportan sin unidad asignada."
