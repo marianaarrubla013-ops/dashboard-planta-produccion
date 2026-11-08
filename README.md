@@ -4,7 +4,7 @@
 Proyecto Integrador – Digitalización de plantas productivas
 Universidad EAFIT
 
-**Aplicación publicada:** https://NOMBRE-DE-LA-APP.streamlit.app *(reemplazar por el enlace real)*
+**Aplicación publicada:** https://dashboard-planta-appuccion-mbg6jasqxnkux2n5nk2v45.streamlit.app/ 
 
 ## Integrantes
 
