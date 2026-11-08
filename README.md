@@ -1,4 +1,4 @@
-# dashboard-planta-produccion
+
 # Dashboard de supervisión de planta productiva
 
 Proyecto Integrador – Digitalización de plantas productivas
