@@ -1,4 +1,3 @@
-"""
 Dashboard de supervisión de planta productiva
 Proyecto Integrador – Digitalización de plantas productivas
 
@@ -164,7 +163,8 @@ with tab_res:
     k2.metric("Producción promedio por registro", fmt(d["produccion"].mean(), 1))
     k3.metric("Defectos totales", fmt(def_total))
     k4.metric("Porcentaje de defectos", f"{fmt(pct(def_total, prod_total), 2)} %",
-              help="Defectos totales / producción total × 100")
+              help="Defectos totales / producción total × 100. Se interpreta como defectos por "
+                   "cada 100 unidades producidas.")
 
     k5, k6, k7, k8 = st.columns(4)
     k5.metric("Registros con falla", fmt(n_falla))
@@ -268,8 +268,14 @@ with tab_pc:
     fig.update_layout(showlegend=False)
     c2.plotly_chart(fig, width="stretch")
 
-    st.caption("Porcentaje de defectos = defectos / producción × 100. Se asume que los defectos "
-               "forman parte de las unidades producidas; el conjunto de datos no lo documenta.")
+    n_anom = int((df["defectos"] > df["produccion"]).sum())
+    st.caption(
+        "Porcentaje de defectos = defectos / producción × 100, interpretado como defectos por cada "
+        f"100 unidades producidas. En el conjunto original, {fmt(n_anom)} registros "
+        f"({fmt(pct(n_anom, len(df)), 2)} %) tienen más defectos que unidades producidas, por lo que "
+        "el indicador es una tasa y no una proporción estricta de piezas defectuosas. Estos registros "
+        "se conservan porque forman parte de los datos originales."
+    )
 
 # ==========================================================================
 # 3. VARIABLES OPERATIVAS – RF-04
